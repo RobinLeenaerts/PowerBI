@@ -1,7 +1,10 @@
 let
     Source = (FunctionChooser as text) => let
     Source = if FunctionChooser = "Merge" then Expression.Evaluate(Text.FromBinary(Web.Contents("https://raw.githubusercontent.com/RobinLeenaerts/PowerBI/master/MERGE")),#shared)
-    else ""
+    else "" 
+
+in
+    Source
 
 in
     Source
