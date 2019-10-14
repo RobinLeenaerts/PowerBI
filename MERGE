@@ -4,7 +4,7 @@ let
     Source = Sql.Database("SVVGGSQLT0001", "MBK_OPT"),
     #"Table1" = Source{[Schema="ACCENTURE",Item=Table1]}[Data],
     #"Table2" = Source{[Schema="ACCENTURE",Item=Table2]}[Data],
-    MERGE = Table.NestedJoin(#"Table1",{Field1},#"Table2",{Field2},"JOINED_TABLE",JoinKind.LeftOuter),
+    MERGE = Table.NestedJoin(#"Table1",{Field1},#"Table2",{Field2},"JOINED_TABLE",JoinKind.LeftOuter)
 in
     MERGE
 in
