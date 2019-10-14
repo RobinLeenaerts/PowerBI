@@ -1,12 +1,11 @@
 let
-    Source = (Table1 as text, Table2 as text) => let
+    Source = (Table1 as text, Table2 as text, Field1 as text, Field2 as text) => let
 
     Source = Sql.Database("SVVGGSQLT0001", "MBK_OPT"),
     #"Table1" = Source{[Schema="ACCENTURE",Item=Table1]}[Data],
     #"Table2" = Source{[Schema="ACCENTURE",Item=Table2]}[Data],
-    MERGE = Table.NestedJoin(#"Table1",{"locatienr"},#"Table2",{"Locatienr"},"JOINED_TABLE",JoinKind.LeftOuter),
-    #"Expanded ACCENTURE VERLADER_EXTENDED" = Table.ExpandTableColumn(MERGE, "JOINED_TABLE", {"debiteur_naam"}, {"debiteur_naam"})
+    MERGE = Table.NestedJoin(#"Table1",{Field1},#"Table2",{Field2},"JOINED_TABLE",JoinKind.LeftOuter),
 in
-    #"Expanded ACCENTURE VERLADER_EXTENDED"
+    MERGE
 in
     Source
