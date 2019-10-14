@@ -1,0 +1,7 @@
+let
+    
+    Source = if FunctionChooser = "Merge" then Expression.Evaluate(Text.FromBinary(Web.Contents("https://raw.githubusercontent.com/RobinLeenaerts/PowerBI/master/Test_Github.txt")),#shared)
+    else ""
+
+in
+    Source
